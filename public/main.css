@@ -1,0 +1,40 @@
+#container {
+    width: 65%;
+    min-width: 640px;
+    max-width: 960px;
+}
+
+@media (max-width: 640px) {
+    #container {
+        width: 98%;
+    }
+}
+
+#container {
+    background-color: #f5f5d5;
+    margin: 0 auto;
+    padding: 1em;
+}
+
+header, #header-inner {
+    width: 100%;
+    text-align: center;
+}
+
+#header-inner,nav{
+    border-bottom: 1px solid #d3d3d3;
+}
+
+ul {
+    margin: 0;
+    padding: 1em 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.section-content {
+    line-height: 1.5em;
+}

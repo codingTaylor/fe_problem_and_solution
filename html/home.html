@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html">
+    <title>The Problems of front end</title>
+    <link type="text/css" rel="stylesheet" href="http://cdn.bootcss.com/normalize/4.1.1/normalize.min.css">
+    <link type="text/css" rel="stylesheet" href="../main.css">
+</head>
+<body>
+<div id="container">
+    <header>
+        <div id="header-inner">
+            <h1>前端问题及解决方法汇总</h1>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#problem-one">margin重叠</a></li>
+            <li><a>移动端1px线</a></li>
+        </ul>
+    </nav>
+    <div id="content">
+        <article>
+            <section id="problem-one">
+                <div class="section-header">
+                    <h2>margin重叠</h2>
+                    <small><strong>参考文章：</strong><a target="_blank" href="http://sentsin.com/web/1143.html">margin那些事儿</a></small>
+                </div>
+                <div class="section-content">
+                    <p><strong>两个或多个毗邻的普通流中的块元素垂直方向上的 margin 会折叠</strong></p>
+                    <p>"毗邻"：<strong>父与子</strong>，兄弟之间(元素之间没有非空内容、border、clear及padding分隔)。</p>
+                    <p>"普通流"：除float及绝对定位等会让元素脱离正常文档流的其他情况。</p>
+                    <p>"块元素"：block元素。</p>
+                    <p>"垂直方向"：只有上边距和下边距会发生重叠。</p>
+                    <div>
+                        <iframe width="100%" height="200" src="//jsfiddle.net/taylorjs/oqsjs2hn/1/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                    </div>
+                    <div>
+                        <p>
+                            如上所示，两个绿色div分别有上下外边距10px，它们是蓝色div的子元素，蓝色div通过样式设置外边距为0.但是由于margin重叠，蓝色div也有了外边距，另外上面绿色div的下边距与下面绿色div的上边距重叠后只有10px。
+                        </p>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p><strong>IE6下浮动的块元素的双外边距</strong></p>
+                    <p>"浮动"：浮动方向与margin方向一致。</p>
+                    <p>"块元素"：block元素。</p>
+                    <p>"IE6"：IE你懂的。</p>
+                    <div>
+                        <iframe width="100%" height="200" src="//jsfiddle.net/taylorjs/wa7j8zgy/embedded/html,css,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+                    </div>
+                    <div>
+                        <p>
+                            如果您的浏览器是IE6，您就会看到双边距的重叠（不是的话那就想象一下吧）。
+                        </p>
+                    </div>
+                </div>
+                <div class="section-content">
+                    <p><strong>解决方法：</strong></p>
+                    <p>能用padding就不用margin（这。。竟无言以对。。嘿嘿）</p>
+                    <p>通过float（除了none）、overflow（除了visible）、display（table-cell/table-caption/inline-block）、position（除了static/relative）等方法为元素创建BFC。</p>
+                </div>
+            </section>
+        </article>
+    </div>
+</div>
+</body>
+</html>
